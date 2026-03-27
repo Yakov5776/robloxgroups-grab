@@ -1,6 +1,5 @@
 # robloxgroups-grab
 
-robloxgroups-grab
 =============
 This is a script you can run to grab the Roblox Groups site.
 
