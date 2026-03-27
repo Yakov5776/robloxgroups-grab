@@ -329,6 +329,9 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
         check("https://groups.roblox.com/v2/groups/" .. item_value .. "/wall/posts?limit=100&sortOrder=Asc")
         
         local name_cleaned = cjson.decode(file_contents)["name"]:gsub("'", ""):gsub("[^a-zA-Z0-9]+", "-"):gsub("^%-", ""):gsub("%-$", "")
+        if name_cleaned == "" then
+          name_cleaned = "unnamed"
+        end
         check("https://www.roblox.com/communities/" .. item_value .. "/" .. name_cleaned)
       else
         assert(cjson.decode(file_contents)["errors"][1]["message"] == "Group is invalid or does not exist.")
